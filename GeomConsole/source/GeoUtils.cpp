@@ -11,7 +11,7 @@ int cgm::orientation2D(const Point3D& a, const Point3D& b, const Point3D& c)
 {
     float area = areaTriangle2D(a,b,c);
     
-    if((area > 0 || area < 0) && (area < TOLERANCE))
+    if((area > 0) && (area < TOLERANCE))
         area = 0;
     if(area < 0 && (area > TOLERANCE))
         area = 0;    
@@ -38,7 +38,7 @@ int cgm::orientation2D(const Point3D& a, const Point3D& b, const Point3D& c)
 
 bool cgm::left(const Point3D& a, const Point3D& b, const Point3D& c)
 {
-    return orientation3D(a,b,c) == int(cgm::RELATIVE_POSITION::LEFT);
+    return orientation2D(a,b,c) == int(cgm::RELATIVE_POSITION::LEFT);
 }
 
 
