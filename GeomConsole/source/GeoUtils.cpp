@@ -103,3 +103,11 @@ double cgm::areaTriangle3D(const Point3D& a, const Point3D& b, const Point3D& c)
 	return root / 2;
 }
 
+
+
+float cgm::angleBetweenLines(Line l1, Line l2)
+{
+	float ang = acosf(Vector::DotProduct(l1.direction(), l2.direction()) / (l1.direction().magnitude() * l2.direction().magnitude()));
+	float angleDeg = ang * 180.0f / PI;
+	return angleDeg;
+}
